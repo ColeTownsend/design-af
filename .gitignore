@@ -33,6 +33,9 @@ jspm_packages
 # Nextjs
 .next
 
+# Environment vars
+.env
+
 # Optional npm cache directory
 .npm
 
