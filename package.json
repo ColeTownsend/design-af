@@ -1,0 +1,15 @@
+{
+  "name": "design-af",
+  "version": "1.0.0",
+  "description": "A design inspo feed",
+  "main": "index.js",
+  "repository": "git@github.com:ColeTownsend/design-af.git",
+  "author": "Cole Townsend <cole@coletownsend.com>",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^1.2.3"
+  },
+  "scripts": {
+    "dev": "next"
+  }
+}
