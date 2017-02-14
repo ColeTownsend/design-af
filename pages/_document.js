@@ -12,7 +12,8 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <title>My page</title>
+          <title>Design AF</title>
+          <link href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia" rel="stylesheet" />
           <style dangerouslySetInnerHTML={{ __html: this.props.style }} />
         </Head>
         <body>

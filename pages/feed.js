@@ -33,7 +33,7 @@ export default class FeedPage extends React.Component {
     return (
       <div>
         <h1>Yes I am feed</h1>
-        <Feed post={this.props.posts} />
+        <Feed posts={this.props.posts} />
       </div>
     );
   }
