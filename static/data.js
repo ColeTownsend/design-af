@@ -157,4 +157,8 @@ const data = [
   },
 ];
 
-export default data;
+export default {
+  async fetchDataOffline () {
+    return Promise.resolve(data);
+  },
+};
