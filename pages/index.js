@@ -23,7 +23,7 @@
 
  const activityURL = `https://twnsndco.dropmark.com/activity.json?key=${key}`;
 
- export default class Main extends React.Component {
+ export default class Index extends React.Component {
    static async getInitialProps () {
     // eslint-disable-next-line no-undef
      const response = await fetch(activityURL);
@@ -51,11 +51,11 @@
    }
 }
 
- Main.propTypes = {
+ Index.propTypes = {
    posts: React.PropTypes.arrayOf(React.PropTypes.object),
  };
 
- Main.defaultProps = {
+ Index.defaultProps = {
    posts: [],
  };
 
