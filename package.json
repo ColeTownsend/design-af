@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "cxs": "^3.0.4",
+    "global": "^4.3.1",
     "isomorphic-fetch": "^2.2.1",
     "moment": "^2.17.1",
     "next": "^2.0.0-beta",
@@ -14,6 +15,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-rnd": "^4.2.0",
+    "react-sketchapp": "^0.7.0"
   },
   "scripts": {
     "dev": "next",

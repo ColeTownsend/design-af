@@ -12,7 +12,7 @@ export default function({ className, posts }) {
           className={cx.post}
           {...{ 'data-name': `Artboard ${i + 2}` }}
           key={post.id}
-          style={i % 2 === 0 ? { marginRight: Spacing.medium } : { marginLeft: Spacing.medium }}
+          style={i % 2 === 0 && { marginRight: Spacing.medium, marginLeft: Spacing.medium }}
         >
           {post.thumbnails.cropped &&
             <img alt={post.name} src={post.thumbnails.cropped} />
@@ -37,7 +37,7 @@ export default function({ className, posts }) {
 const cx = {
   post: cxs({
     ...ArtboardStyles,
-    width: `calc(50% - ${Spacing.large}px)`,
+    width: `calc(33% - ${Spacing.medium * 3}px)`,
     overflow: 'hidden',
     marginBottom: Spacing.large,
   }),
