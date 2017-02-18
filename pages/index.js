@@ -1,8 +1,11 @@
  import React from 'react';
  import 'isomorphic-fetch';
  import { filter, propEq } from 'ramda';
- import cxs from 'cxs/lite';
+ import cxs from 'cxs';
  import Feed from '../components/feed';
+ import ResizeDiv from '../components/resizeableDiv';
+ import Spacing from '../styles/spacing';
+ import ArtboardStyles from '../styles/artboard';
 
  const key = '4e12c280ec9217ecaf61';
 
@@ -15,6 +18,8 @@
 // function createCategoryURL (category) {
 //   return `http://twnsndco.dropmark.com/${category}.json`;
 // }
+
+ const dataName = { 'data-name': 'Artboard 1' };
 
  const activityURL = `https://twnsndco.dropmark.com/activity.json?key=${key}`;
 
@@ -30,14 +35,17 @@
 
    render () {
      return (
-       <div className={styles.root}>
-         <header>
-           <div>
-             <h1 className={styles.fraktur}>Design as fuck</h1> <span className={styles.sectra}>is a
-            collection of platform agnostic inspiration.</span>
+       <div className={cx.root}>
+         <header {...dataName} className={cx.mainArtboard}>
+           <div className={cx.content}>
+             <div>
+               <h1 className={cx.fraktur}>Design as fuck </h1>
+               <span className={cx.sectra}>is a collection of platform agnostic inspiration.</span>
+             </div>
+             <ResizeDiv />
            </div>
          </header>
-         <Feed posts={this.props.posts} />
+         <Feed className={cx.feed} posts={this.props.posts} />
        </div>
      );
    }
@@ -51,17 +59,47 @@
    posts: [],
  };
 
- const styles = {
+ const cx = {
    root: cxs({
      fontFamily: 'system, -apple-system, sans-serif',
+     color: 'black',
+     fontSize: 15,
+     userSelect: 'none',
+     background: '#F2F2F2',
+   }),
+   mainArtboard: cxs({
+     ...ArtboardStyles,
+     display: 'flex',
+     flexDirection: 'column',
+     alignItems: 'center',
+     justifyContent: 'center',
+     margin: Spacing.large,
+     paddingTop: Spacing.xLarge,
+     paddingBottom: Spacing.xLarge,
+     minHeight: 320,
+   }),
+   feed: cxs({
+     margin: Spacing.large,
+     display: 'flex',
+     maxWidth: '100%',
+     flexWrap: 'wrap',
+     justifyContent: 'space-between',
+   }),
+   content: cxs({
+     maxWidth: Spacing.headerWidth,
+   }),
+   body: cxs({
+     background: 'red',
    }),
    sectra: cxs({
      fontFamily: 'GT Sectra Fine Trial',
      fontSize: 50,
+     display: 'inline',
    }),
    fraktur: cxs({
      fontFamily: 'UnifrakturMaguntia',
      fontSize: 50,
      fontWeight: '300',
+     display: 'inline',
    }),
  };

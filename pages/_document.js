@@ -1,5 +1,9 @@
 import Document, { Head, Main, NextScript } from 'next/document';
-import cxs from 'cxs/lite';
+import cxs from 'cxs';
+
+const styles = {
+  backgroundColor: '#f2f2f2',
+};
 
 export default class MyDocument extends Document {
   static async getInitialProps ({ renderPage }) {
@@ -13,10 +17,10 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <title>Design AF</title>
-          <link href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Eczar|UnifrakturMaguntia" rel="stylesheet" />
           <style dangerouslySetInnerHTML={{ __html: this.props.style }} />
         </Head>
-        <body>
+        <body style={styles}>
           <Main />
           <NextScript />
         </body>

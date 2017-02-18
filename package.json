@@ -7,8 +7,6 @@
   "author": "Cole Townsend <cole@coletownsend.com>",
   "license": "MIT",
   "dependencies": {
-    "@mars/heroku-nextjs-build": "^1.1.0",
-    "bricks.js": "^1.7.0",
     "cxs": "^3.0.4",
     "dotenv": "^4.0.0",
     "isomorphic-fetch": "^2.2.1",
@@ -19,13 +17,14 @@
     "react-dom": "^15.4.2",
     "react-no-ssr": "^1.1.0",
     "react-redux": "^5.0.2",
+    "react-rnd": "^4.2.0",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "next start",
     "heroku-postbuild": "heroku-nextjs-build"
   },
   "engines": {
