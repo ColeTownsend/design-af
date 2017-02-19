@@ -111,7 +111,7 @@ const cx = {
   imageWrapper: cxs({
     position: 'relative',
     width: '100%',
-    height: 300,
+    height: 240,
     overflow: 'hidden',
     marginBottom: Spacing.small,
   }),
