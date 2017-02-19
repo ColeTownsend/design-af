@@ -19,6 +19,8 @@
 //   return `http://twnsndco.dropmark.com/${category}.json`;
 // }
 
+ const isPost = post => post.type === 'image' || post.type === 'link';
+
  const dataName = { 'data-name': 'Artboard 1' };
 
  const activityURL = `https://twnsndco.dropmark.com/activity.json?key=${key}`;
@@ -28,8 +30,9 @@
     // eslint-disable-next-line no-undef
      const response = await fetch(activityURL);
      const json = await response.json();
+
      return {
-       posts: filter(propEq('type', 'link'), json),
+       posts: filter(isPost, json),
      };
    }
 
@@ -83,6 +86,7 @@
      display: 'flex',
      maxWidth: '100%',
      flexWrap: 'wrap',
+     alignItems: 'flex-start',
      justifyContent: 'space-between',
    }),
    content: cxs({

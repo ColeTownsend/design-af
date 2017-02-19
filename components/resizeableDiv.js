@@ -98,10 +98,8 @@ export default class ResizeDiv extends React.Component {
         resizerHandleStyle={resizerHandleStyles}
         isResizable={isResizable}
       >
-        <span style={body}>Design can be used to accomplish great things.
-          It&apos;s okay to make awesome buttons and modals, or work on your side
-          project &mdash; like this one &mdash; that doesn&apos;t save the world.
-        But here are some things that do.</span>
+        <span style={body}>Sick shit to keep your design tight, synced up, on point, swervy, wavy,
+        a e s t h e t i c, brutalist, “brutalist,” anti-design, #dailyui, dribbble ready, mvp, and other buzzwords. </span>
       </Rnd>
     );
   }
