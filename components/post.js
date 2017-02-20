@@ -1,12 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import {
-  when,
-  pipe,
-  take,
-  append,
-  join,
-} from 'ramda';
 import cxs from 'cxs';
 import Spacing from '../styles/spacing';
 import ArtboardStyles from '../styles/artboard';

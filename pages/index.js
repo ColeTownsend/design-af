@@ -1,6 +1,6 @@
  import React from 'react';
  import 'isomorphic-fetch';
- import { filter, propEq } from 'ramda';
+ import { filter } from 'ramda';
  import cxs from 'cxs';
  import Feed from '../components/feed';
  import ResizeDiv from '../components/resizeableDiv';
@@ -19,7 +19,7 @@
 //   return `http://twnsndco.dropmark.com/${category}.json`;
 // }
 
- const isPost = post => post.type === 'image' || post.type === 'link';
+ const isPost = post => (post.type === 'image' || post.type === 'link') && post.collection_id !== 396722;
 
  const dataName = { 'data-name': 'Artboard 1' };
 
