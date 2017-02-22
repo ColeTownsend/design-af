@@ -3,6 +3,13 @@ import moment from 'moment';
 import cxs from 'cxs';
 import Spacing from '../styles/spacing';
 import ArtboardStyles from '../styles/artboard';
+import { configureAnalytics, logEvent } from '../utils/analytics';
+
+configureAnalytics();
+
+function logLinkClick ({ name }) {
+  logEvent('Clicked post link', 'Post Feed', name);
+}
 
 export default class Post extends React.Component {
   constructor (props) {
@@ -12,8 +19,6 @@ export default class Post extends React.Component {
   }
 
   handleClick () {
-    console.log('clicked');
-    console.log(this.state);
     this.setState(prevState => ({ isShow: !prevState.isShow }));
   }
 
@@ -40,7 +45,7 @@ export default class Post extends React.Component {
         <div className={cx.content}>
           <div className={cx.titleWrapper}>
             {link
-              ? <a className={cx.link} href={link}><h3 className={cx.title}>{name}</h3></a>
+              ? <a className={cx.link} onClick={name => logLinkClick(name)} href={link}><h3 className={cx.title}>{name}</h3></a>
               : <h3 className={cx.title}>{name}</h3>
             }
             {description &&
