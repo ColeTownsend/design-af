@@ -30,7 +30,6 @@ export function logPageView () {
 
 export function logEvent (action, label, value) {
   if (IS_BROWSER) {
-    console.log(action, 'hi');
     ReactGA.event({
       action,
       label,

@@ -45,7 +45,14 @@ export default class Post extends React.Component {
         <div className={cx.content}>
           <div className={cx.titleWrapper}>
             {link
-              ? <a className={cx.link} onClick={() => logLinkClick(name)} href={link}><h3 className={cx.title}>{name}</h3></a>
+              ? <a
+                className={cx.link}
+                onClick={() => logLinkClick(name)}
+                href={link}
+              >
+                <h3 className={cx.title}>{name}</h3>
+              </a>
+
               : <h3 className={cx.title}>{name}</h3>
             }
             {description &&
