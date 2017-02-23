@@ -98,7 +98,7 @@ export default class ResizeDiv extends React.Component {
         resizerHandleStyle={resizerHandleStyles}
         isResizable={isResizable}
       >
-        <span style={body}>Sick shit to keep your design tight, synced up, on point, swervy, wavy,
+        <span style={body}>Sick inspiration to keep your design tight, synced up, on point, swervy, wavy,
         a e s t h e t i c, brutalist, “brutalist,” anti-design, #dailyui, dribbble ready, mvp, and other buzzwords. </span>
       </Rnd>
     );

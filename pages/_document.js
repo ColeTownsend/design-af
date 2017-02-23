@@ -18,6 +18,8 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <title>Design AF</title>
+          <meta name="description" content="A collection of web and mobile design inspiration by Cole Townsend." />
+          <meta name="google-site-verification" content="KmiQk9kASHM1q_TMkUX0LSONkRrv-UoTqv6WG0KUyaM" />
           <link href="https://fonts.googleapis.com/css?family=Eczar|UnifrakturMaguntia" rel="stylesheet" />
           <style dangerouslySetInnerHTML={{ __html: this.props.style }} />
         </Head>

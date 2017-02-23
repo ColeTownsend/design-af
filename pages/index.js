@@ -40,7 +40,7 @@ export default class Index extends React.Component {
           <div className={cx.content}>
             <div>
               <h1 className={cx.fraktur}>Design as fuck </h1>
-              <span className={cx.sectra}>is a collection of platform agnostic inspiration.</span>
+              <span className={cx.sectra}>is a collection of web and mobile design inspiration.</span>
             </div>
             <ResizeDiv />
           </div>
