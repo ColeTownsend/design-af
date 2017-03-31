@@ -4,6 +4,7 @@ import cxs from 'cxs';
 const styles = {
   backgroundColor: '#f2f2f2',
   boxSizing: 'border-box',
+  webkitFontSmoothing: 'antialiased',
 };
 
 export default class MyDocument extends Document {

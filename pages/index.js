@@ -7,6 +7,8 @@ import { configureAnalytics, logPageView } from '../utils/analytics';
 import Feed from '../components/feed';
 import ResizeDiv from '../components/resizeableDiv';
 import Spacing from '../styles/spacing';
+import Colors from '../styles/colors';
+import { System } from '../styles/fontFamily';
 import ArtboardStyles from '../styles/artboard';
 
 // stuff for dropmark
@@ -40,10 +42,15 @@ export default class Index extends React.Component {
           <div className={cx.content}>
             <div>
               <h1 className={cx.fraktur}>Design as fuck </h1>
-              <span className={cx.sectra}>is a collection of web and mobile design inspiration.</span>
+              <span className={cx.sectra}>is a collection of web and mobile
+              design inspiration.</span>
             </div>
             <ResizeDiv />
           </div>
+          <nav className={cx.nav}>
+            <a className={cx.link} href="https://twitter.com/twnsndco">Submit your stuff</a>
+            <a className={cx.link} href="https://twitter.com/twnsndco">Want to interview?</a>
+          </nav>
         </header>
         <Feed className={cx.feed} posts={this.props.posts} />
       </div>
@@ -67,6 +74,25 @@ const cx = {
     userSelect: 'none',
     background: '#F2F2F2',
   }),
+  nav: cxs({
+    position: 'absolute',
+    top: Spacing.large,
+    left: `calc(50vw - ${Spacing.headerWidth})`,
+    maxWidth: Spacing.headerWidth,
+    width: '100%',
+  }),
+  link: cxs({
+    color: Colors.OffWhite,
+    textDecoration: 'none',
+    fontSize: 14,
+    fontFamily: System,
+    marginRight: Spacing.medium,
+    '-webkit-font-smoothing': 'antialiased',
+    'font-smooth': 'always',
+    ':hover': {
+      color: Colors.Red,
+    },
+  }),
   mainArtboard: cxs({
     ...ArtboardStyles,
     display: 'flex',
@@ -77,6 +103,7 @@ const cx = {
     paddingTop: Spacing.xLarge,
     paddingBottom: Spacing.xLarge,
     minHeight: 320,
+    backgroundColor: Colors.Black,
   }),
   feed: cxs({
     margin: Spacing.large,
@@ -88,12 +115,10 @@ const cx = {
   }),
   content: cxs({
     maxWidth: Spacing.headerWidth,
-  }),
-  body: cxs({
-    background: 'red',
+    color: Colors.OffWhite,
   }),
   sectra: cxs({
-    fontFamily: 'GT Sectra Fine Trial',
+    fontFamily: 'GT Sectra Fine, GT Sectra Fine Trial, Eczar, serif',
     fontSize: 50,
     display: 'inline',
   }),

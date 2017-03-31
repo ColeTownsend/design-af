@@ -1,9 +1,12 @@
 import React from 'react';
 import Rnd from 'react-rnd';
+import cxs from 'cxs';
 import Spacing from '../styles/spacing';
 
-const style = {
-  color: 'black',
+const base = {
+  color: 'white',
+  opacity: 0.7,
+  webkitFontSmoothing: 'antialiased',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -31,14 +34,7 @@ const handleStyle = {
   position: 'absolute',
   background: '#FFFFFF',
   cursor: 'col-resize',
-  boxShadow: '0 0 1px 0 rgba(0,0,0,0.5)',
-};
-
-const body = {
-  alignSelf: 'flex-start',
-  lineHeight: 1.5,
-  border: '1px solid rgba(0,0,0,.1)',
-  padding: 6,
+  boxShadow: '0 0 1px 0 rgba(0,0,0,0.3)',
 };
 
 const resizerHandleStyles = {
@@ -74,7 +70,10 @@ const isResizable = {
 export default class ResizeDiv extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { zIndex: 99 };
+    this.state = {
+      zIndex: 99,
+      active: false,
+    };
   }
 
   componentWillMount () {
@@ -90,7 +89,7 @@ export default class ResizeDiv extends React.Component {
           y: 0,
           width: 600,
         }}
-        style={style}
+        style={base}
         minWidth={100}
         minHeight={150}
         maxWidth={Spacing.maxWidth}
@@ -98,9 +97,22 @@ export default class ResizeDiv extends React.Component {
         resizerHandleStyle={resizerHandleStyles}
         isResizable={isResizable}
       >
-        <span style={body}>Sick inspiration to keep your design tight, synced up, on point, swervy, wavy,
-        a e s t h e t i c, brutalist, “brutalist,” anti-design, #dailyui, dribbble ready, mvp, and other buzzwords. </span>
+        <span className={cx.body}>Sick inspiration to keep your design tight, synced
+          up, on point, swervy, wavy, a e s t h e t i c, brutalist, “brutalist,”
+        anti-design, #dailyui, dribbble ready, mvp, and other buzzwords. </span>
       </Rnd>
     );
   }
 }
+
+const cx = {
+  body: cxs({
+    alignSelf: 'flex-start',
+    lineHeight: 1.5,
+    border: '1px solid #5B5B60',
+    padding: 6,
+    ':hover': {
+      border: '1px solid #4CC1FC',
+    },
+  }),
+};

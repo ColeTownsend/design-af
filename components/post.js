@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import moment from 'moment';
 import cxs from 'cxs';
 import Spacing from '../styles/spacing';
+import Colors from '../styles/colors';
 import ArtboardStyles from '../styles/artboard';
+import { Sectra, Mono } from '../styles/fontFamily';
 import { configureAnalytics, logEvent } from '../utils/analytics';
 
+const LEARNING_COLLECTION_ID = 400671;
+
+// analytics
 configureAnalytics();
 
 function logLinkClick ({ name }) {
@@ -32,15 +37,19 @@ export default class Post extends React.Component {
       created_at,
     } = this.props.post;
 
+    const collectionId = this.props.post.collection_id;
+
     return (
       <div
         className={cx.post}
         {...{ 'data-name': `Artboard ${this.props.artboard}` }}
         key={id}
       >
-        <div className={cx.imageWrapper}>
-          <img className={cx.image} alt={name} src={thumbnails.large} />
-        </div>
+        <Header
+          collectionId={collectionId}
+          imageSrc={thumbnails.large}
+          name={name}
+        />
 
         <div className={cx.content}>
           <div className={cx.titleWrapper}>
@@ -64,7 +73,7 @@ export default class Post extends React.Component {
               </button>
             }
           </div>
-          <h5 className={cx.date}>Added at {moment(created_at).fromNow()}</h5>
+          <h5 className={cx.date}>Added {moment(created_at).fromNow()}</h5>
           {description && this.state.isShow &&
             <div className={cx.description}>
               <p>{description}</p>
@@ -77,20 +86,40 @@ export default class Post extends React.Component {
 }
 
 Post.propTypes = {
-  artboard: React.PropTypes.number.isRequired,
-  post: React.PropTypes.shape({
-    id: React.PropTypes.number,
-    description: React.PropTypes.string,
-    name: React.PropTypes.string,
-    created_at: React.PropTypes.string,
-    link: React.PropTypes.string,
+  artboard: PropTypes.number.isRequired,
+  post: PropTypes.shape({
+    id: PropTypes.number,
+    description: PropTypes.string,
+    name: PropTypes.string,
+    created_at: PropTypes.string,
+    link: PropTypes.string,
+    collection_id: PropTypes.number,
     // eslint-disable-next-line
-    thumbnails: React.PropTypes.object
-  }),
+    thumbnails: PropTypes.object
+  }).isRequired,
 };
 
-Post.defaultProps = {
-  post: {},
+// Creates a learn graphic or uses the screenshot / website image.
+function Header ({ collectionId, imageSrc, name }) {
+  if (collectionId === LEARNING_COLLECTION_ID) {
+    return (
+      <div className={cx.learnGraphic}>
+        <span className={cx.learnTitle}>Learn</span>
+      </div>
+    );
+  } else {
+    return (
+      <div className={cx.imageWrapper}>
+        <img className={cx.image} alt={name} src={imageSrc} />
+      </div>
+    );
+  }
+}
+
+Header.propTypes = {
+  name: PropTypes.string.isRequired,
+  collectionId: PropTypes.number.isRequired,
+  imageSrc: PropTypes.string.isRequired,
 };
 
 const cx = {
@@ -99,6 +128,7 @@ const cx = {
     width: `calc(33% - ${Spacing.large}px)`,
     marginBottom: Spacing.large,
     flexDirection: 'column',
+    boxSizing: 'border-box',
     'nth-of-type(2n)': {
       marginRight: Spacing.medium,
       marginLeft: Spacing.medium,
@@ -119,6 +149,26 @@ const cx = {
     height: 240,
     overflow: 'hidden',
     marginBottom: Spacing.small,
+    borderBottom: '1px solid rgba(0,0,0,0.10)',
+  }),
+  learnGraphic: cxs({
+    position: 'relative',
+    width: '100%',
+    height: 240,
+    marginBottom: Spacing.small,
+    // background: 'linear-gradient(to bottom, #ddd6f3 , #faaca8)',
+    background: 'white',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    boxShadow: `inset 0 -4px 0 0 ${Colors.Red}`,
+  }),
+  learnTitle: cxs({
+    color: Colors.Red,
+    fontSize: 72,
+    fontFamily: Sectra,
+    fontWeight: 600,
   }),
   content: cxs({
     padding: Spacing.small,
@@ -136,7 +186,7 @@ const cx = {
   title: cxs({
     fontWeight: 600,
     fontSize: 14,
-    color: '#232324',
+    color: Colors.Black,
     marginTop: 0,
     marginBottom: Spacing.small / 2,
     width: 'calc(100% - 60px)',
@@ -147,21 +197,19 @@ const cx = {
       opacity: 0.5,
     },
   }),
-  toggle: cxs({
-  }),
   date: cxs({
     opacity: 0.6,
-    fontFamily: 'SF Mono, Inconsolata, Menlo, monospace',
+    fontFamily: Mono,
     fontSize: 12,
     fontWeight: 400,
-    color: '#32383E',
+    color: Colors.DarkNavy,
     marginTop: 0,
     marginBottom: Spacing.small,
   }),
   description: cxs({
     fontSize: 13,
     lineHeight: 1.5,
-    color: '#32383E',
+    color: Colors.DarkNavy,
     opacity: 0.6,
   }),
 };
