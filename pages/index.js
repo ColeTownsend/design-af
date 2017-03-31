@@ -41,7 +41,7 @@ export default class Index extends React.Component {
         <header {...dataName} className={cx.mainArtboard}>
           <div className={cx.content}>
             <div>
-              <h1 className={cx.fraktur}>Design as fkcu</h1>
+              <h1 className={cx.fraktur}>Design af</h1>
               <span className={cx.sectra}>is a collection of web and mobile
               design inspiration.</span>
             </div>
