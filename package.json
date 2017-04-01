@@ -14,7 +14,6 @@
     "ramda": "^0.23.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-ga": "^2.1.2",
     "react-rnd": "^4.2.0"
   },
   "scripts": {

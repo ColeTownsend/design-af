@@ -5,16 +5,8 @@ import Spacing from '../styles/spacing';
 import Colors from '../styles/colors';
 import ArtboardStyles from '../styles/artboard';
 import { Sectra, Mono } from '../styles/fontFamily';
-import { configureAnalytics, logEvent } from '../utils/analytics';
 
 const LEARNING_COLLECTION_ID = 400671;
-
-// analytics
-configureAnalytics();
-
-function logLinkClick ({ name }) {
-  logEvent('Clicked post link', 'Post Feed', name);
-}
 
 export default class Post extends React.Component {
   constructor (props) {
@@ -56,7 +48,6 @@ export default class Post extends React.Component {
             {link
               ? <a
                 className={cx.link}
-                onClick={() => logLinkClick(name)}
                 href={link}
               >
                 <h3 className={cx.title}>{name}</h3>

@@ -1,4 +1,3 @@
-require('dotenv').config();
 import React from 'react';
 import 'isomorphic-fetch';
 import { filter } from 'ramda';
@@ -9,6 +8,8 @@ import Spacing from '../styles/spacing';
 import Colors from '../styles/colors';
 import { System } from '../styles/fontFamily';
 import ArtboardStyles from '../styles/artboard';
+
+require('dotenv').config();
 
 // stuff for dropmark
 const isPost = post => (post.type === 'image' || post.type === 'link') && post.collection_id !== 396722;
