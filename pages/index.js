@@ -1,9 +1,8 @@
+require('dotenv').config();
 import React from 'react';
 import 'isomorphic-fetch';
-// import ReactGA from 'react-ga';
 import { filter } from 'ramda';
 import cxs from 'cxs';
-import { configureAnalytics, logPageView } from '../utils/analytics';
 import Feed from '../components/feed';
 import ResizeDiv from '../components/resizeableDiv';
 import Spacing from '../styles/spacing';
@@ -12,13 +11,9 @@ import { System } from '../styles/fontFamily';
 import ArtboardStyles from '../styles/artboard';
 
 // stuff for dropmark
-const key = '4e12c280ec9217ecaf61';
 const isPost = post => (post.type === 'image' || post.type === 'link') && post.collection_id !== 396722;
 const dataName = { 'data-name': 'Artboard 1' };
-const activityURL = `https://twnsndco.dropmark.com/activity.json?key=${key}`;
-
-// google analytics
-configureAnalytics();
+const activityURL = `https://twnsndco.dropmark.com/activity.json?key=${process.env.DROPMARK_KEY}`;
 
 export default class Index extends React.Component {
   static async getInitialProps () {
@@ -29,10 +24,6 @@ export default class Index extends React.Component {
     return {
       posts: filter(isPost, json),
     };
-  }
-
-  componentWillMount () {
-    logPageView();
   }
 
   render () {
