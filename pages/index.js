@@ -9,8 +9,6 @@ import Colors from '../styles/colors';
 import { System } from '../styles/fontFamily';
 import ArtboardStyles from '../styles/artboard';
 
-require('dotenv').config();
-
 // stuff for dropmark
 const isPost = post => (post.type === 'image' || post.type === 'link') && post.collection_id !== 396722;
 const dataName = { 'data-name': 'Artboard 1' };
@@ -21,6 +19,8 @@ export default class Index extends React.Component {
   // eslint-disable-next-line no-undef
     const response = await fetch(activityURL);
     const json = await response.json();
+
+    console.log(json);
 
     return {
       posts: filter(isPost, json),
@@ -33,7 +33,7 @@ export default class Index extends React.Component {
         <header {...dataName} className={cx.mainArtboard}>
           <div className={cx.content}>
             <div>
-              <h1 className={cx.fraktur}>Design af</h1>
+              <h1 className={cx.fraktur}>Design af </h1>
               <span className={cx.sectra}>is a collection of web and mobile
               design inspiration.</span>
             </div>
