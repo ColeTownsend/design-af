@@ -20,8 +20,9 @@ export default class MyDocument extends Document {
         <Head>
           <title>Design AF</title>
           <meta name="description" content="A collection of web and mobile design inspiration by Cole Townsend." />
-          <meta name="google-site-verification" content="KmiQk9kASHM1q_TMkUX0LSONkRrv-UoTqv6WG0KUyaM" />
           <link href="https://fonts.googleapis.com/css?family=Eczar|UnifrakturMaguntia" rel="stylesheet" />
+          <link rel="icon" href="/static/favicon.ico?v=1" />
+          <link rel="mask-icon" href="/static/favicon.svg?v=1" color="#000000" />
           <style dangerouslySetInnerHTML={{ __html: this.props.style }} />
         </Head>
         <body style={styles}>
