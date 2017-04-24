@@ -1,13 +1,17 @@
+
 import React from 'react';
 import 'isomorphic-fetch';
 import { filter } from 'ramda';
 import cxs from 'cxs';
+import dotenv from 'dotenv';
 import Feed from '../components/feed';
 import ResizeDiv from '../components/resizeableDiv';
 import Spacing from '../styles/spacing';
 import Colors from '../styles/colors';
 import { System } from '../styles/fontFamily';
 import ArtboardStyles from '../styles/artboard';
+
+dotenv.config();
 
 // stuff for dropmark
 const isPost = post => (post.type === 'image' || post.type === 'link') && post.collection_id !== 396722;
@@ -20,8 +24,6 @@ export default class Index extends React.Component {
     const response = await fetch(activityURL);
     const json = await response.json();
 
-    console.log(json);
-
     return {
       posts: filter(isPost, json),
     };
@@ -33,7 +35,7 @@ export default class Index extends React.Component {
         <header {...dataName} className={cx.mainArtboard}>
           <div className={cx.content}>
             <div>
-              <h1 className={cx.fraktur}>Design af </h1>
+              <h1 className={cx.fraktur}>Design af</h1>
               <span className={cx.sectra}>is a collection of web and mobile
               design inspiration.</span>
             </div>

@@ -41,6 +41,7 @@ export default class Post extends React.Component {
           collectionId={collectionId}
           imageSrc={thumbnails.large}
           name={name}
+          link={link}
         />
 
         <div className={cx.content}>
@@ -91,18 +92,22 @@ Post.propTypes = {
 };
 
 // Creates a learn graphic or uses the screenshot / website image.
-function Header ({ collectionId, imageSrc, name }) {
+function Header ({ collectionId, imageSrc, name, link }) {
   if (collectionId === LEARNING_COLLECTION_ID) {
     return (
-      <div className={cx.learnGraphic}>
-        <span className={cx.learnTitle}>Learn</span>
-      </div>
+      <a href={link}>
+        <div className={cx.learnGraphic}>
+          <span className={cx.learnTitle}>Learn</span>
+        </div>
+      </a>
     );
   } else {
     return (
-      <div className={cx.imageWrapper}>
-        <img className={cx.image} alt={name} src={imageSrc} />
-      </div>
+      <a href={link}>
+        <div className={cx.imageWrapper}>
+          <img className={cx.image} alt={name} src={imageSrc} />
+        </div>
+      </a>
     );
   }
 }
@@ -117,6 +122,7 @@ const cx = {
   post: cxs({
     ...ArtboardStyles,
     width: `calc(33% - ${Spacing.large}px)`,
+    maxWidth: 600,
     marginBottom: Spacing.large,
     flexDirection: 'column',
     boxSizing: 'border-box',
@@ -124,9 +130,13 @@ const cx = {
       marginRight: Spacing.medium,
       marginLeft: Spacing.medium,
     },
+    ':hover': {
+      boxShadow: '0 2px 6px 0 rgba(0,0,0,0.50), 0 0 2px 0 #4CC1FC',
+    },
   }),
   image: cxs({
     maxWidth: 600,
+    width: '100%',
     height: 'auto',
     overflow: 'hidden',
     objectFit: 'contain',

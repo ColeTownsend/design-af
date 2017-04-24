@@ -1,6 +1,6 @@
 import React from 'react';
-import Rnd from 'react-rnd';
 import cxs from 'cxs';
+import Rnd from 'react-rnd';
 import Spacing from '../styles/spacing';
 
 const base = {
@@ -76,10 +76,6 @@ export default class ResizeDiv extends React.Component {
     };
   }
 
-  componentWillMount () {
-    setTimeout(() => this.setState({ zIndex: 1000 }), 5000);
-  }
-
   render () {
     return (
       <Rnd
@@ -89,6 +85,7 @@ export default class ResizeDiv extends React.Component {
           y: 0,
           width: 600,
         }}
+        bounds="parent"
         style={base}
         minWidth={100}
         minHeight={150}
