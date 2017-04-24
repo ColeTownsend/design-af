@@ -3,7 +3,7 @@ import React from 'react';
 import 'isomorphic-fetch';
 import { filter } from 'ramda';
 import cxs from 'cxs';
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 import Feed from '../components/feed';
 import ResizeDiv from '../components/resizeableDiv';
 import Spacing from '../styles/spacing';
@@ -11,12 +11,12 @@ import Colors from '../styles/colors';
 import { System } from '../styles/fontFamily';
 import ArtboardStyles from '../styles/artboard';
 
-dotenv.config();
+// dotenv.config();
 
 // stuff for dropmark
 const isPost = post => (post.type === 'image' || post.type === 'link') && post.collection_id !== 396722;
 const dataName = { 'data-name': 'Artboard 1' };
-const activityURL = `https://twnsndco.dropmark.com/activity.json?key=${process.env.DROPMARK_KEY}`;
+const activityURL = 'https://twnsndco.dropmark.com/activity.json?key=4e12c280ec9217ecaf61';
 
 export default class Index extends React.Component {
   static async getInitialProps () {
@@ -35,7 +35,7 @@ export default class Index extends React.Component {
         <header {...dataName} className={cx.mainArtboard}>
           <div className={cx.content}>
             <div>
-              <h1 className={cx.fraktur}>Design af</h1>
+              <h1 className={cx.fraktur}>Design af&nbsp;</h1>
               <span className={cx.sectra}>is a collection of web and mobile
               design inspiration.</span>
             </div>

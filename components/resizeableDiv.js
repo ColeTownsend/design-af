@@ -6,7 +6,7 @@ import Spacing from '../styles/spacing';
 const base = {
   color: 'white',
   opacity: 0.7,
-  webkitFontSmoothing: 'antialiased',
+  WebkitFontSmoothing: 'antialiased',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -85,7 +85,6 @@ export default class ResizeDiv extends React.Component {
           y: 0,
           width: 600,
         }}
-        bounds="parent"
         style={base}
         minWidth={100}
         minHeight={150}
