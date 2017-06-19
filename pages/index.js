@@ -14,7 +14,7 @@ import ArtboardStyles from '../styles/artboard';
 // dotenv.config();
 
 // stuff for dropmark
-const isPost = post => (post.type === 'image' || post.type === 'link') && post.collection_id !== 396722;
+const isPost = post => (post.type === 'image' || post.type === 'link') && post.collection_id !== 396722 && post.collection_id !== 431042;
 const dataName = { 'data-name': 'Artboard 1' };
 const activityURL = 'https://twnsndco.dropmark.com/activity.json?key=4e12c280ec9217ecaf61';
 
